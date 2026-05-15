@@ -18,26 +18,26 @@ Reference-based taxonomic and functional profiling of microbial communities. Use
 
 ## Parameters
 
-| Parameter | Type | Default | Controls |
-|---|---|---|---|
-| `--input` | path | _(required)_ | Samplesheet of clean reads. |
-| `--outdir` | path | _(required)_ | Result directory. |
-| `--metaphlan_db` | path | — | MetaPhlAn 4 database. |
-| `--humann3_nucleo` | path | — | ChocoPhlAn DB. |
-| `--humann3_uniref90` | path | — | UniRef90 DB. |
+| Parameter            | Type | Default      | Controls                    |
+| -------------------- | ---- | ------------ | --------------------------- |
+| `--input`            | path | _(required)_ | Samplesheet of clean reads. |
+| `--outdir`           | path | _(required)_ | Result directory.           |
+| `--metaphlan_db`     | path | —            | MetaPhlAn 4 database.       |
+| `--humann3_nucleo`   | path | —            | ChocoPhlAn DB.              |
+| `--humann3_uniref90` | path | —            | UniRef90 DB.                |
 
 ## Output
 
-| Path (relative to `--outdir`) | Content |
-|---|---|
-| `metaphlan/individual_profiles/<sample>_microbial_profile.txt` | Per-sample MetaPhlAn species table (relative abundance). |
-| `metaphlan/individual_profiles/<sample>_viral_profile.txt` | Per-sample viral marker profile (always produced — `--profile_vsc` is on by default). |
-| `metaphlan/microbial.txt` | **Species-by-sample abundance matrix** across the whole study. |
-| `humann/<sample>_genefamilies.tsv` | Per-sample gene-family abundance (UniRef90 IDs, CPM-normalized). |
-| `humann/<sample>_pathabundance.tsv` | Per-sample MetaCyc pathway abundance (CPM-normalized). |
-| `humann/gene_families.tsv` | **Gene-family-by-sample abundance matrix.** |
-| `humann/path_abundances.tsv` | **Pathway-by-sample abundance matrix.** |
-| `pipeline_info/microbial_profiles_multiqc_report.html` | Consolidated MultiQC. |
+| Path (relative to `--outdir`)                                  | Content                                                                               |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `metaphlan/individual_profiles/<sample>_microbial_profile.txt` | Per-sample MetaPhlAn species table (relative abundance).                              |
+| `metaphlan/individual_profiles/<sample>_viral_profile.txt`     | Per-sample viral marker profile (always produced — `--profile_vsc` is on by default). |
+| `metaphlan/microbial.txt`                                      | **Species-by-sample abundance matrix** across the whole study.                        |
+| `humann/<sample>_genefamilies.tsv`                             | Per-sample gene-family abundance (UniRef90 IDs, CPM-normalized).                      |
+| `humann/<sample>_pathabundance.tsv`                            | Per-sample MetaCyc pathway abundance (CPM-normalized).                                |
+| `humann/gene_families.tsv`                                     | **Gene-family-by-sample abundance matrix.**                                           |
+| `humann/path_abundances.tsv`                                   | **Pathway-by-sample abundance matrix.**                                               |
+| `pipeline_info/microbial_profiles_multiqc_report.html`         | Consolidated MultiQC.                                                                 |
 
 The two `humann/` merged tables and the `metaphlan/microbial.txt` table are the typical inputs to downstream statistical analysis.
 

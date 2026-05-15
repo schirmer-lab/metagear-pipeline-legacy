@@ -2,13 +2,13 @@
 
 The `schirmer-lab/metagear` pipeline groups its work into five entry-point workflows, selected at run time with the `--workflow` parameter:
 
-| Workflow | Purpose | Input | Output | Cost |
-|---|---|---|---|---|
-| [download_databases](download_databases.md) | One-time install of KneadData, MetaPhlAn, and HUMAnN references | — | Reference databases at the paths you supply | Disk + network |
-| [qc_dna](qc_dna.md) | Adapter/quality trimming and host decontamination of DNA reads | Raw DNA FASTQ | Clean paired reads + QC report | Medium |
-| [qc_rna](qc_rna.md) | Same flow as `qc_dna`; intended for metatranscriptomic input | Raw RNA FASTQ | Clean paired reads + QC report | Medium |
-| [microbial_profiles](microbial_profiles.md) | Reference-based taxonomic and functional profiling | Clean reads | MetaPhlAn4 species table + HUMAnN3 gene-family and pathway tables | Medium–High |
-| [gene_analysis](gene_analysis.md) | De novo assembly, gene catalog, MSP analysis | Clean reads | Gene/protein catalogs, abundance matrices, MSPs | High |
+| Workflow                                    | Purpose                                                         | Input         | Output                                                            | Cost           |
+| ------------------------------------------- | --------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- | -------------- |
+| [download_databases](download_databases.md) | One-time install of KneadData, MetaPhlAn, and HUMAnN references | —             | Reference databases at the paths you supply                       | Disk + network |
+| [qc_dna](qc_dna.md)                         | Adapter/quality trimming and host decontamination of DNA reads  | Raw DNA FASTQ | Clean paired reads + QC report                                    | Medium         |
+| [qc_rna](qc_rna.md)                         | Same flow as `qc_dna`; intended for metatranscriptomic input    | Raw RNA FASTQ | Clean paired reads + QC report                                    | Medium         |
+| [microbial_profiles](microbial_profiles.md) | Reference-based taxonomic and functional profiling              | Clean reads   | MetaPhlAn4 species table + HUMAnN3 gene-family and pathway tables | Medium–High    |
+| [gene_analysis](gene_analysis.md)           | De novo assembly, gene catalog, MSP analysis                    | Clean reads   | Gene/protein catalogs, abundance matrices, MSPs                   | High           |
 
 ## Recommended order
 

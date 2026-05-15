@@ -18,13 +18,13 @@ This workflow does not read a samplesheet — there is no `--input` argument. In
 
 ## Parameters
 
-| Parameter | Type | Default | Controls |
-|---|---|---|---|
-| `--outdir` | path | _(required)_ | Output directory for execution metadata (the database files themselves land at the destinations below). |
-| `--metaphlan_db` | path | — | Destination for the MetaPhlAn 4 marker database. |
-| `--humann3_nucleo` | path | — | Destination for the HUMAnN 3 ChocoPhlAn nucleotide database. |
-| `--humann3_uniref90` | path | — | Destination for the HUMAnN 3 UniRef90 Diamond protein database. |
-| `--kneaddata_refdb` | array | `[""]` | Destination for the KneadData host reference. Single-element array; the pipeline writes the human-genome Bowtie2 index here. |
+| Parameter            | Type  | Default      | Controls                                                                                                                     |
+| -------------------- | ----- | ------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `--outdir`           | path  | _(required)_ | Output directory for execution metadata (the database files themselves land at the destinations below).                      |
+| `--metaphlan_db`     | path  | —            | Destination for the MetaPhlAn 4 marker database.                                                                             |
+| `--humann3_nucleo`   | path  | —            | Destination for the HUMAnN 3 ChocoPhlAn nucleotide database.                                                                 |
+| `--humann3_uniref90` | path  | —            | Destination for the HUMAnN 3 UniRef90 Diamond protein database.                                                              |
+| `--kneaddata_refdb`  | array | `[""]`       | Destination for the KneadData host reference. Single-element array; the pipeline writes the human-genome Bowtie2 index here. |
 
 ## Output
 
@@ -53,10 +53,10 @@ nextflow run schirmer-lab/metagear -profile docker \
 `db-paths.yaml`:
 
 ```yaml
-metaphlan_db:     /data/metagear/metaphlan
-humann3_nucleo:   /data/metagear/humann/chocophlan
+metaphlan_db: /data/metagear/metaphlan
+humann3_nucleo: /data/metagear/humann/chocophlan
 humann3_uniref90: /data/metagear/humann/uniref90_diamond
-kneaddata_refdb:  [/data/metagear/kneaddata/Homo_sapiens]
+kneaddata_refdb: [/data/metagear/kneaddata/Homo_sapiens]
 ```
 
 ## Notes

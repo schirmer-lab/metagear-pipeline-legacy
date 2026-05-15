@@ -21,35 +21,35 @@ De novo gene-centric analysis: assemble reads, call genes, build a non-redundant
 
 ## Parameters
 
-| Parameter | Type | Default | Controls |
-|---|---|---|---|
-| `--input` | path | _(required)_ | Samplesheet of clean reads. |
-| `--outdir` | path | _(required)_ | Result directory. |
-| `--metaphlan_db` | path | — | MetaPhlAn 4 database (used when MetaPhlAn runs fresh for MSP taxonomy). |
-| `--gtdb_tk_db` | path | — | GTDB-Tk reference for prokaryotic taxonomic placement of MSPs. |
-| `--metaphlan_profiles` | path \| `false` | `false` | If a path: pre-computed MetaPhlAn profiles file used as input to MSP, MetaPhlAn is skipped. If `false`: MetaPhlAn runs fresh. |
+| Parameter              | Type            | Default      | Controls                                                                                                                      |
+| ---------------------- | --------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| `--input`              | path            | _(required)_ | Samplesheet of clean reads.                                                                                                   |
+| `--outdir`             | path            | _(required)_ | Result directory.                                                                                                             |
+| `--metaphlan_db`       | path            | —            | MetaPhlAn 4 database (used when MetaPhlAn runs fresh for MSP taxonomy).                                                       |
+| `--gtdb_tk_db`         | path            | —            | GTDB-Tk reference for prokaryotic taxonomic placement of MSPs.                                                                |
+| `--metaphlan_profiles` | path \| `false` | `false`      | If a path: pre-computed MetaPhlAn profiles file used as input to MSP, MetaPhlAn is skipped. If `false`: MetaPhlAn runs fresh. |
 
 ## Output
 
-| Path (relative to `--outdir`) | Content |
-|---|---|
-| `prodigal/raw/` | Raw Prodigal output per sample (nucleotide FASTA, GFF). |
-| `prodigal/` | Filtered per-sample gene sequences. |
-| `<catalog dir>/merged.nr9590.fa` | **Non-redundant gene catalog** (CD-HIT 95% identity, 90% coverage). |
-| `translated/` | Protein-translated gene catalog. |
-| `<catalog dir>/<catalog>.prot90.faa` | Non-redundant protein catalog (CD-HIT 90% identity, 80% coverage). |
-| `coverm/gene/bam/` | Per-sample BWA alignments against the gene catalog. |
-| `coverm/gene/` | Per-sample CoverM tables (intermediate). |
-| `coverm/gene_abundance_count.tsv` | **Gene-by-sample raw read count matrix.** |
-| `coverm/gene_abundance_rpkm.tsv` | **Gene-by-sample RPKM matrix.** |
-| `coverm/gene_abundance_tpm.tsv` | **Gene-by-sample TPM matrix.** |
-| `interproscan/raw/` | Per-chunk InterProScan output. |
-| `interproscan/protein_catalog.tsv` | **InterProScan / Pfam annotations** on the protein catalog. |
-| `interproscan/protein_catalog.FG_IPS_Pfam.tsv` | Functional-group annotations. |
-| `metaphlan/individual_profiles/<sample>_microbial_profile.txt` | Per-sample MetaPhlAn profiles (only when MetaPhlAn runs). |
-| `metaphlan/microbial.txt` | Merged MetaPhlAn matrix (only when MetaPhlAn runs). |
-| `msp/` | MSPminer output: MSP definitions, pangenome sequences, abundance, MetaPhlAn linkage. |
-| `pipeline_info/gene_analysis_multiqc_report.html` | Consolidated MultiQC. |
+| Path (relative to `--outdir`)                                  | Content                                                                              |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `prodigal/raw/`                                                | Raw Prodigal output per sample (nucleotide FASTA, GFF).                              |
+| `prodigal/`                                                    | Filtered per-sample gene sequences.                                                  |
+| `<catalog dir>/merged.nr9590.fa`                               | **Non-redundant gene catalog** (CD-HIT 95% identity, 90% coverage).                  |
+| `translated/`                                                  | Protein-translated gene catalog.                                                     |
+| `<catalog dir>/<catalog>.prot90.faa`                           | Non-redundant protein catalog (CD-HIT 90% identity, 80% coverage).                   |
+| `coverm/gene/bam/`                                             | Per-sample BWA alignments against the gene catalog.                                  |
+| `coverm/gene/`                                                 | Per-sample CoverM tables (intermediate).                                             |
+| `coverm/gene_abundance_count.tsv`                              | **Gene-by-sample raw read count matrix.**                                            |
+| `coverm/gene_abundance_rpkm.tsv`                               | **Gene-by-sample RPKM matrix.**                                                      |
+| `coverm/gene_abundance_tpm.tsv`                                | **Gene-by-sample TPM matrix.**                                                       |
+| `interproscan/raw/`                                            | Per-chunk InterProScan output.                                                       |
+| `interproscan/protein_catalog.tsv`                             | **InterProScan / Pfam annotations** on the protein catalog.                          |
+| `interproscan/protein_catalog.FG_IPS_Pfam.tsv`                 | Functional-group annotations.                                                        |
+| `metaphlan/individual_profiles/<sample>_microbial_profile.txt` | Per-sample MetaPhlAn profiles (only when MetaPhlAn runs).                            |
+| `metaphlan/microbial.txt`                                      | Merged MetaPhlAn matrix (only when MetaPhlAn runs).                                  |
+| `msp/`                                                         | MSPminer output: MSP definitions, pangenome sequences, abundance, MetaPhlAn linkage. |
+| `pipeline_info/gene_analysis_multiqc_report.html`              | Consolidated MultiQC.                                                                |
 
 The bolded rows are the typical analytical deliverables: the gene catalog, its annotations, the three abundance matrices, and the MSP set.
 

@@ -20,26 +20,26 @@ Quality control for shotgun-metagenomic DNA reads. Produces decontaminated, adap
 
 ## Parameters
 
-| Parameter | Type | Default | Controls |
-|---|---|---|---|
-| `--input` | path | _(required)_ | Samplesheet of raw FASTQ pairs. |
-| `--outdir` | path | _(required)_ | Where to write results. |
-| `--kneaddata_refdb` | array | `[""]` | Host genome(s) for read filtering (e.g. `[/data/kneaddata/Homo_sapiens]`). |
-| `--fix_fastq_header` | boolean | `false` | Rewrite FASTQ headers via FASTX before KneadData. Enable if your reads come from a non-standard source and KneadData rejects them. |
+| Parameter            | Type    | Default      | Controls                                                                                                                           |
+| -------------------- | ------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `--input`            | path    | _(required)_ | Samplesheet of raw FASTQ pairs.                                                                                                    |
+| `--outdir`           | path    | _(required)_ | Where to write results.                                                                                                            |
+| `--kneaddata_refdb`  | array   | `[""]`       | Host genome(s) for read filtering (e.g. `[/data/kneaddata/Homo_sapiens]`).                                                         |
+| `--fix_fastq_header` | boolean | `false`      | Rewrite FASTQ headers via FASTX before KneadData. Enable if your reads come from a non-standard source and KneadData rejects them. |
 
 ## Output
 
-| Path (relative to `--outdir`) | Content |
-|---|---|
-| `fastqc/<sample>_fastqc.{html,zip}` | Pre-QC FastQC per raw FASTQ. |
-| `trimgalore/<sample>_*_val_{1,2}.fq.gz` | Adapter-trimmed reads (intermediate). |
-| `trimgalore/<sample>_*_trimming_report.txt` | Trim Galore log. |
-| `kneaddata/<sample>_paired_{1,2}.fastq.gz` | **Final clean reads.** Use these as input to downstream workflows. |
-| `kneaddata/<sample>_kneaddata.log` | Per-sample KneadData log. |
-| `kneaddata/stats/` | Per-sample read-count CSV and the QC summary plot (`qc_summary_plot.png`). |
-| `fastqc/<sample>_clean_fastqc.{html,zip}` | Post-QC FastQC per cleaned FASTQ. |
-| `pipeline_info/qc_dna_multiqc_report.html` | Consolidated MultiQC report across all samples. |
-| `pipeline_info/qc_dna_samplesheet.valid.csv` | Validated samplesheet as the pipeline saw it. |
+| Path (relative to `--outdir`)                | Content                                                                    |
+| -------------------------------------------- | -------------------------------------------------------------------------- |
+| `fastqc/<sample>_fastqc.{html,zip}`          | Pre-QC FastQC per raw FASTQ.                                               |
+| `trimgalore/<sample>_*_val_{1,2}.fq.gz`      | Adapter-trimmed reads (intermediate).                                      |
+| `trimgalore/<sample>_*_trimming_report.txt`  | Trim Galore log.                                                           |
+| `kneaddata/<sample>_paired_{1,2}.fastq.gz`   | **Final clean reads.** Use these as input to downstream workflows.         |
+| `kneaddata/<sample>_kneaddata.log`           | Per-sample KneadData log.                                                  |
+| `kneaddata/stats/`                           | Per-sample read-count CSV and the QC summary plot (`qc_summary_plot.png`). |
+| `fastqc/<sample>_clean_fastqc.{html,zip}`    | Post-QC FastQC per cleaned FASTQ.                                          |
+| `pipeline_info/qc_dna_multiqc_report.html`   | Consolidated MultiQC report across all samples.                            |
+| `pipeline_info/qc_dna_samplesheet.valid.csv` | Validated samplesheet as the pipeline saw it.                              |
 
 The "final clean reads" row is the only output you need to keep long-term; the rest are diagnostic.
 

@@ -27,24 +27,24 @@ If you don't pass an rRNA reference, the workflow still runs but rRNA reads will
 
 ## Parameters
 
-| Parameter | Type | Default | Controls |
-|---|---|---|---|
-| `--input` | path | _(required)_ | Samplesheet of raw FASTQ pairs. |
-| `--outdir` | path | _(required)_ | Where to write results. |
-| `--kneaddata_refdb` | array | `[""]` | Host genome + rRNA reference(s) for filtering. |
-| `--fix_fastq_header` | boolean | `false` | Rewrite FASTQ headers via FASTX before KneadData. |
+| Parameter            | Type    | Default      | Controls                                          |
+| -------------------- | ------- | ------------ | ------------------------------------------------- |
+| `--input`            | path    | _(required)_ | Samplesheet of raw FASTQ pairs.                   |
+| `--outdir`           | path    | _(required)_ | Where to write results.                           |
+| `--kneaddata_refdb`  | array   | `[""]`       | Host genome + rRNA reference(s) for filtering.    |
+| `--fix_fastq_header` | boolean | `false`      | Rewrite FASTQ headers via FASTX before KneadData. |
 
 ## Output
 
 Same shape as `qc_dna`. Output paths are identical; only the MultiQC report and validated samplesheet are prefixed with `qc_rna_`:
 
-| Path (relative to `--outdir`) | Content |
-|---|---|
+| Path (relative to `--outdir`)              | Content                                          |
+| ------------------------------------------ | ------------------------------------------------ |
 | `kneaddata/<sample>_paired_{1,2}.fastq.gz` | **Final clean reads** — host- and rRNA-depleted. |
-| `kneaddata/<sample>_kneaddata.log` | Per-sample log (one block per reference). |
-| `kneaddata/stats/qc_summary_plot.png` | Visual breakdown of read losses by step. |
-| `fastqc/`, `trimgalore/` | Intermediate FastQC and Trim Galore output. |
-| `pipeline_info/qc_rna_multiqc_report.html` | Consolidated MultiQC report. |
+| `kneaddata/<sample>_kneaddata.log`         | Per-sample log (one block per reference).        |
+| `kneaddata/stats/qc_summary_plot.png`      | Visual breakdown of read losses by step.         |
+| `fastqc/`, `trimgalore/`                   | Intermediate FastQC and Trim Galore output.      |
+| `pipeline_info/qc_rna_multiqc_report.html` | Consolidated MultiQC report.                     |
 
 Expect the final read count to drop substantially compared with DNA — that's the rRNA filtering working.
 
