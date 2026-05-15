@@ -50,12 +50,23 @@ TREATMENT_REP3,AEG588A6_S6_L004_R1_001.fastq.gz,
 
 An [example samplesheet](../assets/samplesheet.csv) has been provided with the pipeline.
 
+## Workflow selection
+
+The pipeline bundles five entry-point workflows; the active one is chosen at run time with the `--workflow` parameter:
+
+- `download_databases` — one-time reference database install
+- `qc_dna`, `qc_rna` — adapter/quality trimming and host (and rRNA, for RNA) decontamination
+- `microbial_profiles` — taxonomic and functional profiling (MetaPhlAn 4 + HUMAnN 3)
+- `gene_analysis` — de novo assembly, gene catalog, MSP analysis
+
+See the [workflows guide](workflows/index.md) for per-workflow descriptions, inputs, outputs, and parameters.
+
 ## Running the pipeline
 
 The typical command for running the pipeline is as follows:
 
 ```bash
-nextflow run schirmer-lab/metagear --input ./samplesheet.csv --outdir ./results  -profile docker
+nextflow run schirmer-lab/metagear --workflow qc_dna --input ./samplesheet.csv --outdir ./results -profile docker
 ```
 
 This will launch the pipeline with the `docker` configuration profile. See below for more information about profiles.
